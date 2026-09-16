@@ -10,4 +10,15 @@ const capitalize = function(str){
   return firstLetter.toUpperCase() + otherLetters;
 }
 
-export { capitalize }
+const reverseString = function(str) {
+  if (typeof str !== "string" ) {
+    throw new Error("argument must be a string.");
+  }
+
+  const strArray = str.split("");
+  strArray.reverse();
+  const reversedStr = strArray.join("");
+  return reversedStr;
+}
+
+export { capitalize, reverseString }
