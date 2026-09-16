@@ -76,4 +76,17 @@ const caesarCypher = function(str, num){
 
 }
 
-export { capitalize, reverseString, Calculator, caesarCypher }
+const analyzeArray = function(arr) {
+  const average = arr.reduce((prev, cur) => prev + cur) / arr.length;
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  const length = arr.length;
+  return {
+    average: average,
+    min: min,
+    max: max,
+    length: length
+  }
+}
+
+export { capitalize, reverseString, Calculator, caesarCypher, analyzeArray }

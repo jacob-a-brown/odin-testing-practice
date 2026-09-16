@@ -1,4 +1,4 @@
-import { capitalize, reverseString, Calculator, caesarCypher } from "./test-practice.js";
+import { capitalize, reverseString, Calculator, caesarCypher, analyzeArray } from "./test-practice.js";
 
 // CAPITALIZE
 
@@ -107,3 +107,32 @@ test("caesarCypher mixed cases", () => {
 test("caesarCypher keeps non-alphabetic characters unchanged", () => {
   expect(caesarCypher("2e$a", 2)).toBe("2g$c");
 });
+
+// ANALYZE ARRAY
+
+test("analyzeArray exists", () => {
+  expect(analyzeArray([1])).toBeDefined();
+})
+
+test("analyzeArray contains average, min, max, length keys", () => {
+  expect(analyzeArray([1])).toHaveProperty("average");
+  expect(analyzeArray([1])).toHaveProperty("min");
+  expect(analyzeArray([1])).toHaveProperty("max");
+  expect(analyzeArray([1])).toHaveProperty("length");
+})
+
+test("analyzeArray average", () => {
+  expect(analyzeArray([1, 2, 3]).average).toBe(2);
+})
+
+test("analyzeArray min", () => {
+  expect(analyzeArray([1, 2, 3]).min).toBe(1);
+})
+
+test("analyzeArray max", () => {
+  expect(analyzeArray([1, 2, 3]).max).toBe(3);
+})
+
+test("analyzeArray length", () => {
+  expect(analyzeArray([1, 2, 3]).length).toBe(3);
+})
