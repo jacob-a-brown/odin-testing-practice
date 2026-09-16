@@ -1,4 +1,4 @@
-import { capitalize, reverseString, Calculator } from "./test-practice.js";
+import { capitalize, reverseString, Calculator, caesarCypher } from "./test-practice.js";
 
 // CAPITALIZE
 
@@ -82,3 +82,28 @@ test("calculator divide works", () => {
   expect(Calculator.divide(1, 2)).toBe(0.5);
 })
 
+// CAESAR CYPHER
+
+test("caesarCypher exists", () => {
+  expect(caesarCypher("a", 1)).toBeDefined();
+});
+
+test("caesarCypher no wrap", () => {
+  expect(caesarCypher("ab", 1)).toBe("bc");
+});
+
+test("caesarCypher wrap", () => {
+  expect(caesarCypher("zc", 1)).toBe("ad");
+});
+
+test("caesarCypher all caps", () => {
+  expect(caesarCypher("FM", 1)).toBe("GN");
+});
+
+test("caesarCypher mixed cases", () => {
+  expect(caesarCypher("AmbN", 1)).toBe("BncO");
+});
+
+test("caesarCypher keeps non-alphabetic characters unchanged", () => {
+  expect(caesarCypher("2e$a", 2)).toBe("2g$c");
+});

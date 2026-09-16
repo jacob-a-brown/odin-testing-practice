@@ -44,4 +44,36 @@ class Calculator {
   }
 }
 
-export { capitalize, reverseString, Calculator }
+const caesarCypher = function(str, num){
+  let lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  lowerCaseLetters = lowerCaseLetters.split("");
+  let upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  upperCaseLetters = upperCaseLetters.split("");
+
+  const strArray = str.split("");
+  const caesarArray = [];
+
+  console.log(lowerCaseLetters);
+
+  strArray.forEach((char) => {
+    let currentIndex;
+    let cypherIndex;
+
+    if(lowerCaseLetters.includes(char)){
+      currentIndex = lowerCaseLetters.findIndex((letter) => letter === char)
+      cypherIndex = (currentIndex + num) % 26;
+      caesarArray.push(lowerCaseLetters[cypherIndex])
+    } else if (upperCaseLetters.includes(char)) {
+      currentIndex = upperCaseLetters.findIndex((letter) => letter === char)
+      cypherIndex = (currentIndex + num) % 26;
+      caesarArray.push(upperCaseLetters[cypherIndex])
+    } else {
+      caesarArray.push(char)
+    }
+  })
+
+  return caesarArray.join("");
+
+}
+
+export { capitalize, reverseString, Calculator, caesarCypher }
